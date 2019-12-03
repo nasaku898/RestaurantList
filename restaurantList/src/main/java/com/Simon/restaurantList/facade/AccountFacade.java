@@ -8,4 +8,7 @@ public interface AccountFacade {
 	public int updateName(String newUserName, String newLastName, UserModel currentUser);
 
 	public int updatePassword(String newPassword, UserModel currentUser);
+
+	public boolean createNewUser(UserModel newUser);
+
 }
