@@ -26,5 +26,4 @@ public class UserDaoImpl extends GenericDaoImpl<UserModel> implements UserDao {
 			return 0;
 		}).orElse(0);
 	}
-
 }
