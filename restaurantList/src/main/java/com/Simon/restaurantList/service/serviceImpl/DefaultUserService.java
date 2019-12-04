@@ -47,9 +47,16 @@ public class DefaultUserService implements UserService {
 		return userDao.update(updatedUser);
 	}
 	
+	//Add validation for repeated email already in DB
 	public boolean isEmailValid(String email)
 	{
 		String regex = "\\w+\\@\\w+\\.[A-Za-z]+";
 		return Pattern.matches(regex, email);		
+	}
+
+	//Add force relogin eventually
+	@Override
+	public void deleteUser(UserModel userToDelete) {
+		userDao.delete(userToDelete);	
 	}
 }
