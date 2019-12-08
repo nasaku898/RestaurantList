@@ -3,7 +3,10 @@ package com.Simon.restaurantList.dao.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import com.Simon.restaurantList.dao.GenericDao;
+
 
 public abstract class GenericDaoImpl<Object> implements GenericDao<Object> {
 	
