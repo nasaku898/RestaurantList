@@ -7,4 +7,5 @@ public interface RegistrationService {
 	
 	public boolean createNewUser(UserModel newUser);
 	public boolean validateEmail(String email) throws InvalidEmailException;
+
 }
