@@ -34,7 +34,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	// implement login form later
 	public void configure(HttpSecurity httpSecurity) throws Exception {
 		httpSecurity.authorizeRequests().antMatchers("/register").permitAll().antMatchers("/authentication/**")
-				.authenticated().antMatchers("/User/users").hasRole("ADMIN").antMatchers("/Users/**").authenticated()
+				.authenticated().antMatchers("/Users/users").hasRole("ADMIN").antMatchers("/Users/**").authenticated()
 				.and().httpBasic().and().csrf().disable();
 		;
 	}
