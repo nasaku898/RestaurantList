@@ -5,10 +5,12 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.Simon.restaurantList.facade.AccountFacade;
@@ -25,9 +27,9 @@ public class UserController {
 		this.accountFacade = accountFacade;
 	}
 
-	@RequestMapping(value = "/user", method = RequestMethod.GET)
+	@RequestMapping(value = "/user", method = RequestMethod.GET, consumes = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
-	public UserModel getUserByEmail(String email) {
+	public UserModel getUserByEmail(@RequestParam(value="email" , required=true) String email) {
 		return accountFacade.getUserByEmail(email);
 	}
 
@@ -48,14 +50,14 @@ public class UserController {
 	
 	@RequestMapping(value = "/passwordModification", method = RequestMethod.PUT)
 	@ResponseBody
-	public String updatePassword(String newPassword) {
+	public String updatePassword(@RequestParam(value="password" , required=true) String newPassword) {
 		accountFacade.updatePassword(newPassword);
 		return "Password Changed Successfully";
 	}
 	
 	@RequestMapping(value = "/emaildModification", method = RequestMethod.PUT)
 	@ResponseBody
-	public String updateEmail(String newEmail) {
+	public String updateEmail(@RequestParam(value="email" , required=true) String newEmail) {
 		accountFacade.updateEmail(newEmail);
 		return "Email Changed Successfully";
 	}
